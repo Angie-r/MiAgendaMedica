@@ -3,6 +3,7 @@ public class Doctor {
     static int id = 0; //Auto incrementado
     String name;
     String especialidad;
+    String email;
 
     Doctor(){
         System.out.println("Construyendo el objeto Doctor");
