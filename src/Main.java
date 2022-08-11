@@ -1,5 +1,7 @@
 import javax.print.Doc;
 
+import java.util.Date;
+
 import static ui.UIMenu.*;
 
 public class Main {
@@ -8,12 +10,19 @@ public class Main {
         //showMenu();
 
         Doctor myDoctor = new Doctor("Gabriela Romero", "Cirugia");
-        System.out.println(myDoctor.name);
-        System.out.println(myDoctor.especialidad);
+        myDoctor.agregarCita(new Date(), "4pm");
+        myDoctor.agregarCita(new Date(), "10am");
+        myDoctor.agregarCita(new Date(), "1 pm");
+
+        for (Doctor.CitaDisponible cD: myDoctor.getCitaDisponible()) {
+            System.out.println(cD.getDate()+ " " + cD.getTime());
+        }
+
 
         Paciente paciente = new Paciente("Angela Silva", "anjera27@gmail.com");
         paciente.setWeight(54.6);
         System.out.println(paciente.getWeight());
+
 
         paciente.setPhoneNumber("12345688");
 
