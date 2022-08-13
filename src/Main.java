@@ -14,17 +14,21 @@ public class Main {
         myDoctor.agregarCita(new Date(), "10am");
         myDoctor.agregarCita(new Date(), "1 pm");
 
-        for (Doctor.CitaDisponible cD: myDoctor.getCitaDisponible()) {
+        System.out.println(myDoctor);
+
+       /* for (Doctor.CitaDisponible cD: myDoctor.getCitaDisponible()) {
             System.out.println(cD.getDate()+ " " + cD.getTime());
-        }
+        }*/
 
 
         Paciente paciente = new Paciente("Angela Silva", "anjera27@gmail.com");
         paciente.setWeight(54.6);
-        System.out.println(paciente.getWeight());
+        System.out.println(paciente);
 
 
         paciente.setPhoneNumber("12345688");
+
+
 
     }
 
