@@ -1,35 +1,26 @@
 import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Set;
 
-public class Doctor {
-    //Atributos
-    static int id = 0; //Auto incrementado
-    private String name;
+public class Doctor extends User {
+    //Atributo
     private String especialidad;
-    private String email;
 
-    Doctor(){
-        System.out.println("Construyendo el objeto Doctor");
-
+    public String getEspecialidad(){
+        return especialidad;
+    }
+    public void setEspecialidad(String especialidad){
+        this.especialidad = especialidad;
     }
 
-    Doctor(String name, String especialidad){
+    Doctor(String name, String email){
+        super(name, email);
         System.out.println("El nombre del doctor asignado es: "+ name);
-        this.name = name;
         this.especialidad = especialidad;
-        id++;
     }
 
     //Comportamientos
-
-    public void showName(){
-        System.out.println(name);
-    }
-
-    public void showId(){
-        System.out.println("ID Doctor: "+ id);
-    }
 
     ArrayList<CitaDisponible> citaDisponible = new ArrayList<>();
     public void agregarCita(Date date, String time){
@@ -38,6 +29,11 @@ public class Doctor {
 
     public ArrayList<CitaDisponible> getCitaDisponible(){
         return citaDisponible;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nEspecialidad: "+ especialidad + "\n Cita disponible: " + citaDisponible.toString();
     }
 
     public static class CitaDisponible{
@@ -74,6 +70,13 @@ public class Doctor {
         public void setTime(String time) {
             this.time = time;
         }
+
+        @Override
+        public String toString() {
+            return "Citas disponibles \n Date: "+ date + "\n Time: "+ time ;
+        }
     }
+
+
 }
 
