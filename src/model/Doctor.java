@@ -1,7 +1,7 @@
-import java.security.PrivateKey;
+package model;
+
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
 
 public class Doctor extends User {
     //Atributo
