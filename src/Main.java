@@ -1,8 +1,7 @@
-import javax.print.Doc;
+import model.Doctor;
+import model.Paciente;
 
 import java.util.Date;
-
-import static ui.UIMenu.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +15,7 @@ public class Main {
 
         System.out.println(myDoctor);
 
-       /* for (Doctor.CitaDisponible cD: myDoctor.getCitaDisponible()) {
+       /* for (model.Doctor.CitaDisponible cD: myDoctor.getCitaDisponible()) {
             System.out.println(cD.getDate()+ " " + cD.getTime());
         }*/
 
