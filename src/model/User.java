@@ -64,4 +64,6 @@ public abstract class User {
         return "model.User: " + name + ", Email: "+ email +
                 "\n Address: "+ address+ ". Phone: "+ phoneNumber;
     }
+
+    public abstract void showDataUser();
 }

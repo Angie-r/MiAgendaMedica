@@ -44,6 +44,12 @@ public class Paciente extends User{
         return super.toString()+ "\nAge: "+ birthday + "\n Weight"+ getWeight()+
                 "\n Height: "+ getHeigth()+ "\n Blood: "+blood;
     }
+
+    @Override
+    public void showDataUser(){
+        System.out.println("Paciente");
+        System.out.println("Historial completo desde nacimiento");
+    }
 }
 
 

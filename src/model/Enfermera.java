@@ -7,6 +7,12 @@ public class Enfermera extends User {
         super(name, email);
     }
 
+    @Override
+    public void showDataUser(){
+        System.out.println("Empleado del Hospital: Cruz verde");
+        System.out.println("Departamentos: Nutriologia, Pediatria");
+    }
+
     public String getEspecialidad(){
         return especialidad;
     }
