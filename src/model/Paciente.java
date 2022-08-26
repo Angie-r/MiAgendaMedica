@@ -31,7 +31,7 @@ public class Paciente extends User{
     }
 
 
-    Paciente(String name, String email){
+    public Paciente(String name, String email){
         super(name,email);
         //System.out.println("\n");
         //System.out.println("El nombre del paciente es: "+ name);
