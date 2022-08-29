@@ -1,11 +1,19 @@
 package ui;
 
+import com.sun.xml.internal.ws.resources.UtilMessages;
 import com.sun.xml.internal.ws.spi.db.BindingContextFactory;
+import model.Doctor;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UIDoctorMenu {
+
+    public static ArrayList<Doctor> doctoresCitasDisponibles = new ArrayList<>();
     public static void showDoctorMenu(){
+
+
+
         int response = 0;
         do{
             System.out.println("\n\n");
@@ -20,6 +28,7 @@ public class UIDoctorMenu {
 
             switch (response){
                 case 1:
+                    showAddAvailableAppointmentsMenu();
                     break;
                 case 2:
                     break;
@@ -52,7 +61,7 @@ public class UIDoctorMenu {
             if (response > 0 && response <4){
                 //1,2,3
                 int seleccionarMes = response;
-                System.out.println(seleccionarMes + " . "+ UIMenu.MESES[seleccionarMes]);
+                System.out.println(seleccionarMes + " . "+ UIMenu.MESES[seleccionarMes-1]);
                 System.out.println("Inserta la fecha disponible: [dd/mm/yyyy]");
                 String date = sc.nextLine();
 
@@ -61,12 +70,18 @@ public class UIDoctorMenu {
                 if (responderFecha == 2) continue;
 
                 int responderTiempo = 0;
+                String hora = "";
                 do {
                     System.out.println("Ingrese la hora disponible para esta fecha "+ date+ "[16:00]");
+                    hora = sc.nextLine();
+                    System.out.println("Su hora es: "+ hora + "\n 1. Correcto \n2. Cambiar hora");
+                    responderTiempo = Integer.valueOf(sc.nextLine());
+
 
                 }while (responderTiempo ==2);
 
-
+                UIMenu.doctorLogged.agregarCita(date, hora);
+                checkDoctorCitaDisponible(UIMenu.doctorLogged);
 
 
             }else if (response == 0){
@@ -75,4 +90,13 @@ public class UIDoctorMenu {
         }while (response !=0);
 
     }
+
+    private static void checkDoctorCitaDisponible(Doctor doctor){
+        if (doctor.getCitaDisponible().size()>0 &&
+                !doctoresCitasDisponibles.contains(doctor)){
+            doctoresCitasDisponibles.add(doctor);
+        }
+    }
+
+
 }

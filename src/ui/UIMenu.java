@@ -99,6 +99,7 @@ public class UIMenu {
                         //Obtener usuario logueado
                         doctorLogged = d;
                         //Mostrar menu del doctor
+                        UIDoctorMenu.showDoctorMenu();
                     }
                 }
             }

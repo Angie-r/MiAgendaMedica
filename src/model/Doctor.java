@@ -2,6 +2,8 @@ package model;
 
 import javax.sound.midi.Soundbank;
 import java.sql.SQLOutput;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,14 +20,13 @@ public class Doctor extends User {
 
     public Doctor(String name, String email){
         super(name, email);
-        System.out.println("El nombre del doctor asignado es: "+ name);
-        this.especialidad = especialidad;
+
     }
 
     //Comportamientos
 
     ArrayList<CitaDisponible> citaDisponible = new ArrayList<>();
-    public void agregarCita(Date date, String time){
+    public void agregarCita(String date, String time){
         citaDisponible.add(new Doctor.CitaDisponible(date,time));
     }
 
@@ -49,9 +50,14 @@ public class Doctor extends User {
         private int id;
         private Date date;
         private String time;
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
-        public CitaDisponible(Date date, String time){
-            this.date = date;
+        public CitaDisponible(String date, String time){
+            try {
+                this.date = formato.parse(date);
+            } catch (ParseException e){
+                e.printStackTrace();
+            }
             this.time = time;
         }
 
@@ -69,6 +75,10 @@ public class Doctor extends User {
 
         public void setDate(Date date) {
             this.date = date;
+        }
+
+        public String getDate(String DATE){
+            return formato.format(date);
         }
 
         public String getTime() {
