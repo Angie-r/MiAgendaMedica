@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Paciente extends User{
 
     //Atributos
@@ -7,6 +10,11 @@ public class Paciente extends User{
     private double weight; //peso
     private double heigth; //altura
     private String blood;
+
+    private ArrayList<CitasDoctor> citasDoctors = new ArrayList<>();
+    private ArrayList<CitasEnfermeras> citasEnfermeras = new ArrayList<>();
+
+
 
     public  String getBirthday(){
         return birthday;
@@ -49,6 +57,24 @@ public class Paciente extends User{
     public void showDataUser(){
         System.out.println("Paciente");
         System.out.println("Historial completo desde nacimiento");
+    }
+
+    public ArrayList<CitasDoctor> getCitasDoctors() {
+        return citasDoctors;
+    }
+
+    public void addCitasDoctors(Doctor doctor, Date date, String time) {
+        CitasDoctor citasDoctor = new CitasDoctor(this,doctor);
+        citasDoctor.calendario(date, time);
+        citasDoctors.add(citasDoctor);
+    }
+
+    public ArrayList<CitasEnfermeras> getCitasEnfermeras() {
+        return citasEnfermeras;
+    }
+
+    public void setCitasEnfermeras(ArrayList<CitasEnfermeras> citasEnfermeras) {
+        this.citasEnfermeras = citasEnfermeras;
     }
 }
 

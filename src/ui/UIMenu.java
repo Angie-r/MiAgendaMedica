@@ -18,12 +18,12 @@ public class UIMenu {
 
         int response = 0;
         do {
-            System.out.println("1. model.Doctor");
-            System.out.println("2. model.Paciente");
+            System.out.println("1. Doctor");
+            System.out.println("2. Paciente");
             System.out.println("0. Salir");
 
             Scanner sc = new Scanner(System.in);
-            response = Integer.valueOf(sc.nextLine());
+            response = Integer.parseInt(sc.nextLine());
 
             switch (response){
                 case 1:
@@ -56,7 +56,7 @@ public class UIMenu {
             System.out.println("0. Regresar");
 
             Scanner sc = new Scanner(System.in);
-            response = Integer.valueOf(sc.nextLine());
+            response = Integer.parseInt(sc.nextLine());
 
             switch (response){
                 case 1:
@@ -110,6 +110,7 @@ public class UIMenu {
                         emailCorrect = true;
                         pacienteLogged = p;
                         // Mostrar menu de pacientes
+                        UIPacienteMenu.showPacienteMenu();
 
                     }
                 }

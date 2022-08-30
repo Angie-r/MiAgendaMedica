@@ -8,6 +8,11 @@ public class CitasDoctor implements Calendario  {
         private Date date;
         private String time;
 
+        public CitasDoctor(Paciente paciente, Doctor doctor){
+            this.paciente = paciente;
+            this.doctor = doctor;
+        }
+
         public int getId(){
             return id;
         }
@@ -41,7 +46,7 @@ public class CitasDoctor implements Calendario  {
         }
 
         public String getTime(){
-            return time;
+            return time + " hrs.";
         }
 
         public void setTime(String time){
@@ -50,6 +55,8 @@ public class CitasDoctor implements Calendario  {
 
         @Override
         public void calendario(Date date, String time){
+            this.date = date;
+            this.time = time;
 
         }
 

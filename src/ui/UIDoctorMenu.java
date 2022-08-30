@@ -75,7 +75,7 @@ public class UIDoctorMenu {
                     System.out.println("Ingrese la hora disponible para esta fecha "+ date+ "[16:00]");
                     hora = sc.nextLine();
                     System.out.println("Su hora es: "+ hora + "\n 1. Correcto \n2. Cambiar hora");
-                    responderTiempo = Integer.valueOf(sc.nextLine());
+                    responderTiempo = Integer.parseInt(sc.nextLine());
 
 
                 }while (responderTiempo ==2);
